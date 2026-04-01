@@ -33,6 +33,33 @@
       "operatingSystem": "All"
     }
     </script>
+    <script>
+
+        // ❌ Disable Right Click
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
+
+// ❌ Disable Ctrl Key Shortcuts
+document.addEventListener("keydown", function (e) {
+
+    // Block Ctrl key combinations
+    if (e.ctrlKey) {
+
+        // List of blocked keys
+        const blockedKeys = ['c', 'v', 'u', 's', 'a', 'x', 'i', 'j'];
+
+        if (blockedKeys.includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+    }
+
+    // ❌ Block F12 (DevTools)
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+});
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <title>TaxRoot | Tips</title>
     <meta name="description" content="Income tax planning tips for the TaxRoot calculator experience."> -->
