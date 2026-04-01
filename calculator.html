@@ -45,6 +45,32 @@
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // ❌ Disable Right Click
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
+
+// ❌ Disable Ctrl Key Shortcuts
+document.addEventListener("keydown", function (e) {
+
+    // Block Ctrl key combinations
+    if (e.ctrlKey) {
+
+        // List of blocked keys
+        const blockedKeys = ['c', 'v', 'u', 's', 'a', 'x', 'i', 'j'];
+
+        if (blockedKeys.includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+    }
+
+    // ❌ Block F12 (DevTools)
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+});
+        </script>
         <style>
             :root {
                 --bg: #f6f1e7;
