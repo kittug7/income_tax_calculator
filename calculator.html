@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<!-- ✅ SEO TITLE -->
+        <title>Income Tax Calculator India | Old vs New Tax Regime</title>
+
+        <!-- ✅ SEO META -->
+        <meta name="description"
+            content="Free Income Tax Calculator India. Compare old vs new tax regime, calculate deductions, and estimate your tax instantly.Income tax planning tips for the TaxRoot calculator experience">
+        <meta name="keywords"
+            content="income tax calculator, tax calculator India, old vs new tax regime, salary tax calculator India, tax saving calculator, Income tax planning tips for the TaxRoot calculator experience">
+        <meta name="author" content="K GOPI KRISHNA">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+
+        <!-- ✅ SOCIAL SEO -->
+        <meta property="og:title" content="Income Tax Calculator India 2026">
+        <meta property="og:description" content="Calculate your tax instantly and compare regimes.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://yourwebsite.com">
+        <!-- <meta property="og:image" content="https://yourwebsite.com/preview.png"> -->
+
+        <!-- ✅ SCHEMA -->
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Income Tax Calculator India",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <title>TaxRoot | Tips</title>
+    <meta name="description" content="Income tax planning tips for the TaxRoot calculator experience."> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+            rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            :root {
+                --bg: #f6f1e7;
+                --paper: rgba(255, 255, 255, .78);
+                --ink: #142018;
+                --muted: #59685d;
+                --line: rgba(20, 32, 24, .1);
+                --green: #15634c;
+                --green-dark: #103f32;
+                --green-soft: #dcefe6;
+                --gold: #d68a3a;
+                --gold-soft: #f8e7d1;
+                --shadow: 0 22px 60px rgba(20, 32, 24, .12);
+                --radius: 28px;
+                --max: 1160px
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            html {
+                scroll-behavior: smooth
+            }
+
+            body {
+                margin: 0;
+                font-family: "Manrope", sans-serif;
+                color: var(--ink);
+                background: radial-gradient(circle at top left, rgba(21, 99, 76, .16), transparent 26%), radial-gradient(circle at bottom right, rgba(214, 138, 58, .14), transparent 24%), linear-gradient(180deg, #f6f1e7 0%, #f4efe5 48%, #efe9de 100%)
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                background-image: linear-gradient(rgba(20, 32, 24, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 32, 24, .03) 1px, transparent 1px);
+                background-size: 56px 56px;
+                mask-image: linear-gradient(180deg, rgba(0, 0, 0, .38), transparent 84%)
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit
+            }
+
+            .wrap {
+                width: min(var(--max), calc(100% - 32px));
+                margin: 0 auto
+            }
+
+            .font-display,
+            .tag,
+            .mini {
+                font-family: "Space Grotesk", sans-serif
+            }
+
+            .topbar {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background: rgba(246, 241, 231, .82);
+                backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(20, 32, 24, .06)
+            }
+
+            .topbar .wrap,
+            .hero,
+            .calc-grid,
+            .cards,
+            .tips,
+            .foot {
+                display: flex;
+                gap: 18px
+            }
+
+            .topbar .wrap {
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 0
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px
+            }
+
+            .mark {
+                width: 42px;
+                height: 42px;
+                border-radius: 14px;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(145deg, var(--green), var(--green-dark));
+                color: #fff7ef;
+                font: 700 1rem "Space Grotesk", sans-serif
+            }
+
+            .brand small {
+                display: block;
+                color: var(--muted)
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                flex-wrap: wrap
+            }
+
+            .nav a {
+                color: var(--muted);
+                font-size: .95rem
+            }
+
+            .nav a:hover {
+                color: var(--ink)
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 0;
+                border-radius: 999px;
+                padding: 13px 20px;
+                font: 700 .95rem "Manrope", sans-serif;
+                cursor: pointer;
+                transition: transform .18s ease, box-shadow .18s ease
+            }
+
+            .btn:hover {
+                transform: translateY(-1px)
+            }
+
+            .primary {
+                background: linear-gradient(145deg, var(--green), var(--green-dark));
+                color: #fff8ef;
+                box-shadow: 0 10px 24px rgba(21, 99, 76, .24)
+            }
+
+            .ghost {
+                background: rgba(255, 255, 255, .82);
+                color: var(--ink);
+                border: 1px solid rgba(20, 32, 24, .08)
+            }
+
+            section {
+                padding: 34px 0
+            }
+
+            .hero {
+                padding: 56px 0 30px;
+                align-items: stretch
+            }
+
+            .hero>*,
+            .panel,
+            .card,
+            .tip,
+            .foot {
+                border: 1px solid var(--line);
+                background: var(--paper);
+                backdrop-filter: blur(14px);
+                box-shadow: var(--shadow)
+            }
+
+            .hero-copy {
+                flex: 1.1;
+                border-radius: 34px;
+                padding: 36px;
+                position: relative;
+                overflow: hidden
+            }
+
+            .hero-copy::after {
+                content: "";
+                position: absolute;
+                right: -50px;
+                bottom: -50px;
+                width: 190px;
+                height: 190px;
+                background: radial-gradient(circle, rgba(214, 138, 58, .24), transparent 64%)
+            }
+
+            .hero-side {
+                flex: .9;
+                border-radius: 34px;
+                padding: 28px;
+                background: linear-gradient(180deg, rgba(16, 63, 50, .95), rgba(11, 36, 29, .98));
+                color: #f8f3ea;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                justify-content: space-between
+            }
+
+            .tag {
+                display: inline-flex;
+                padding: 8px 12px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, .72);
+                color: var(--green-dark);
+                font-size: .8rem;
+                letter-spacing: .04em;
+                text-transform: uppercase
+            }
+
+            .hero h1,
+            .section-title,
+            .panel h3,
+            .card h3,
+            .tip h3 {
+                font-family: "Space Grotesk", sans-serif;
+                letter-spacing: -.04em
+            }
+
+            .hero h1 {
+                margin: 18px 0 14px;
+                font-size: clamp(2.6rem, 4.2vw, 4.8rem);
+                line-height: .96;
+                max-width: 10ch
+            }
+
+            .hero p,
+            .hero li,
+            .section-copy,
+            .card p,
+            .card li,
+            .tip p,
+            .foot p {
+                line-height: 1.72;
+                color: var(--muted)
+            }
+
+            .hero-side p,
+            .hero-side li {
+                color: rgba(248, 243, 234, .82)
+            }
+
+            .cta,
+            .stats,
+            .calc-grid,
+            .cards,
+            .tips {
+                display: grid
+            }
+
+            .cta {
+                margin-top: 24px;
+                grid-auto-flow: column;
+                justify-content: start;
+                gap: 12px
+            }
+
+            .stats {
+                margin-top: 24px;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 14px
+            }
+
+            .stat,
+            .side-stat {
+                border-radius: 18px;
+                padding: 16px
+            }
+
+            .stat {
+                background: rgba(255, 255, 255, .72);
+                border: 1px solid rgba(20, 32, 24, .05)
+            }
+
+            .stat strong {
+                display: block;
+                font-size: 1.12rem;
+                margin-bottom: 6px
+            }
+
+            .stat span,
+            .mini {
+                color: var(--muted)
+            }
+
+            .side-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px
+            }
+
+            /* Accordion Styles */
+            .acc-item {
+                grid-column: 1 / -1;
+                border-radius: 18px;
+                border: 1px solid var(--line);
+                margin-bottom: 8px;
+                background: rgba(255, 255, 255, 0.4);
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .acc-trigger {
+                width: 100%;
+                padding: 16px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: none;
+                border: 0;
+                font: 700 1rem "Manrope";
+                color: var(--green-dark);
+                cursor: pointer;
+                text-align: left;
+            }
+
+            .acc-trigger::after {
+                content: '↓';
+                font-size: 1.2rem;
+                transition: transform 0.3s;
+                opacity: 0.5;
+            }
+
+            .acc-item.active {
+                background: #fff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            }
+
+            .acc-item.active .acc-trigger::after {
+                transform: rotate(180deg);
+            }
+
+            .acc-content {
+                padding: 0 20px 20px;
+                display: none;
+            }
+
+            .acc-item.active .acc-content {
+                display: block;
+            }
+
+            .side-stat {
+                background: rgba(255, 255, 255, .08);
+                border: 1px solid rgba(255, 255, 255, .08)
+            }
+
+            .mini {
+                display: block;
+                font-size: .78rem;
+                text-transform: uppercase;
+                letter-spacing: .05em;
+                margin-bottom: 6px;
+                color: rgba(248, 243, 234, .7)
+            }
+
+            .side-stat strong {
+                font-size: 1.25rem
+            }
+
+            .head {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 18px;
+                margin-bottom: 22px
+            }
+
+            .section-title {
+                margin: 10px 0 8px;
+                font-size: clamp(1.8rem, 2.6vw, 3rem)
+            }
+
+            .section-copy {
+                margin: 0;
+                max-width: 58ch
+            }
+
+            .calc-grid {
+                grid-template-columns: 1.08fr .92fr;
+                gap: 22px;
+                align-items: start
+            }
+
+            .panel {
+                border-radius: 32px;
+                padding: 28px
+            }
+
+            .panel h3 {
+                margin: 0 0 8px;
+                font-size: 1.35rem
+            }
+
+            .panel>p {
+                margin: 0 0 20px;
+                color: var(--muted)
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 8px
+            }
+
+            .field.full {
+                grid-column: 1/-1
+            }
+
+            .field label {
+                font-size: .88rem;
+                font-weight: 700
+            }
+
+            .note {
+                display: inline-flex;
+                width: fit-content;
+                padding: 6px 10px;
+                border-radius: 999px;
+                background: var(--gold-soft);
+                color: #8b5019;
+                font-size: .75rem
+            }
+
+            .input {
+                width: 100%;
+                border: 1px solid rgba(20, 32, 24, .12);
+                border-radius: 16px;
+                background: rgba(255, 255, 255, .9);
+                padding: 15px 16px;
+                font: inherit;
+                color: var(--ink)
+            }
+
+            .input:focus {
+                outline: none;
+                border-color: rgba(21, 99, 76, .54);
+                box-shadow: 0 0 0 4px rgba(21, 99, 76, .12)
+            }
+
+            .error-text {
+                color: #d63a3a;
+                font-size: 0.75rem;
+                margin-top: 4px;
+                font-weight: 600;
+                display: none;
+            }
+
+            .actions {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 22px
+            }
+
+            .assume {
+                margin-top: 22px;
+                padding: 18px;
+                border-radius: 20px;
+                background: rgba(21, 99, 76, .06);
+                border: 1px solid rgba(21, 99, 76, .12)
+            }
+
+            .assume strong {
+                display: block;
+                margin-bottom: 10px
+            }
+
+            .assume ul {
+                margin: 0;
+                padding-left: 18px;
+                color: var(--muted);
+                line-height: 1.7
+            }
+
+            .chip {
+                display: inline-flex;
+                align-self: flex-start;
+                padding: 8px 13px;
+                border-radius: 999px;
+                background: rgba(21, 99, 76, .08);
+                color: var(--green-dark);
+                font-weight: 700;
+                font-size: .84rem
+            }
+
+            .winner {
+                margin-top: 14px;
+                border-radius: 24px;
+                padding: 22px;
+                background: linear-gradient(145deg, #11281f, #0f4e3c);
+                color: #faf5eb
+            }
+
+            .winner h3 {
+                margin: 0 0 8px;
+                font-size: 1.5rem
+            }
+
+            .winner p {
+                margin: 0;
+                color: rgba(250, 245, 235, .78)
+            }
+
+            .amount {
+                margin-top: 16px;
+                font-size: clamp(2.3rem, 5vw, 3.4rem);
+                font-weight: 800;
+                letter-spacing: -.06em
+            }
+
+            .rows {
+                display: grid;
+                gap: 12px;
+                margin-top: 16px
+            }
+
+            .row {
+                display: flex;
+                justify-content: space-between;
+                gap: 16px;
+                align-items: center;
+                padding: 15px 16px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, .72);
+                border: 1px solid rgba(20, 32, 24, .08)
+            }
+
+            .row span {
+                color: var(--muted)
+            }
+
+            .row strong {
+                text-align: right
+            }
+
+            .cards {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px
+            }
+
+            .card,
+            .tip,
+            .foot {
+                border-radius: 26px;
+                padding: 24px
+            }
+
+            .card h3,
+            .tip h3 {
+                margin: 0 0 10px;
+                font-size: 1.18rem
+            }
+
+            .card ul {
+                margin: 12px 0 0;
+                padding-left: 18px
+            }
+
+            .tips {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 18px
+            }
+
+            .tip .tag {
+                margin-bottom: 14px;
+                background: rgba(21, 99, 76, .08);
+                color: var(--green-dark)
+            }
+
+            .foot {
+                margin: 8px 0 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+            .rise {
+                animation: rise .7s ease both
+            }
+
+            .rise.d2 {
+                animation-delay: .08s
+            }
+
+            .rise.d3 {
+                animation-delay: .16s
+            }
+
+            .rise.d4 {
+                animation-delay: .24s
+            }
+
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: none
+                }
+            }
+
+            @media (max-width:1100px) {
+
+                .hero,
+                .calc-grid,
+                .cards,
+                .tips {
+                    grid-template-columns: 1fr;
+                    display: grid
+                }
+
+                .hero h1 {
+                    max-width: none
+                }
+
+                .stats,
+                .side-grid {
+                    grid-template-columns: 1fr
+                }
+            }
+
+            @media (max-width:820px) {
+                .topbar {
+                    position: static
+                }
+
+                .topbar .wrap,
+                .head,
+                .foot {
+                    flex-direction: column;
+                    align-items: flex-start
+                }
+
+                .cta,
+                .form-grid {
+                    grid-auto-flow: row;
+                    grid-template-columns: 1fr
+                }
+
+                .nav {
+                    display: none;
+                }
+
+                .hero-copy,
+                .hero-side,
+                .panel,
+                .card,
+                .tip,
+                .foot {
+                    padding: 22px
+                }
+
+                .stats {
+                    grid-template-columns: 1fr
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="wrap">
+            <a class="brand" href="#top">
+                <div class="mark">TR</div>
+                <div>
+                    <strong>TaxRoot</strong>
+                    <small>Income Tax calculator </small>
+                </div>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="about.html">About</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="tips.html">Tips</a>
+                <a class="btn primary" href="calculator.html">Start Estimating</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section>
+            <div class="wrap" id="calculator">
+                <div class="head rise">
+                    <div>
+                        <span class="tag" style="background:var(--gold-soft);color:#8b5019">Calculator</span>
+                        <h2 class="section-title">Income Tax Calculator</h2>
+                    </div>
+                    <p class="section-copy">FY 2026-27 (AY 2027-28) Estimation tool. Comparison of Old vs. New Tax
+                        Regimes with full sub-category validation.</p>
+                </div>
+                <div class="calc-grid">
+                    <form class="panel rise d2" id="taxForm">
+                        <h3>Financial Inputs</h3>
+                        <p>Enter annual figures. All caps are automatically applied.</p>
+                        <div class="form-grid">
+                            <!-- Section 1: Income -->
+                            <div class="acc-item active">
+                                <button type="button" class="acc-trigger">1. Income Details</button>
+                                <div class="acc-content">
+                                    <div class="form-grid">
+                                        <div class="field"><label for="grossSalary">Annual Basic + DA</label><input
+                                                class="input" id="grossSalary" type="number" min="0"
+                                                placeholder="e.g. 1000000"></div>
+                                        <div class="field"><label for="bonusIncome">Bonus & Special
+                                                Allowance</label><input class="input" id="bonusIncome" type="number"
+                                                min="0" placeholder="e.g. 200000"></div>
+                                        <div class="field"><label for="rentalIncome">Rental Income (Net)</label><input
+                                                class="input" id="rentalIncome" type="number" min="0"
+                                                placeholder="Annual rent received"></div>
+                                        <div class="field"><label for="otherIncome">Other Income /
+                                                Interest</label><input class="input" id="otherIncome" type="number"
+                                                min="0" placeholder="e.g. 50000"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 2: Exemptions -->
+                            <div class="acc-item">
+                                <button type="button" class="acc-trigger">2. Exemptions (Old Regime)</button>
+                                <div class="acc-content">
+                                    <div class="form-grid">
+                                        <div class="field"><label for="professionalTax">Professional Tax</label><input
+                                                class="input" id="professionalTax" type="number" min="0" max="2500"
+                                                placeholder="Max 2500"></div>
+                                        <div class="field"><label for="hraExemption">HRA Exemption</label><input
+                                                class="input" id="hraExemption" type="number" min="0"
+                                                placeholder="e.g. 150000"></div>
+                                        <div class="field"><label for="ltaExemption">LTA Exemption</label><input
+                                                class="input" id="ltaExemption" type="number" min="0"
+                                                placeholder="Leave Travel Allowance"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 3: Deductions -->
+                            <div class="acc-item">
+                                <button type="button" class="acc-trigger">3. Common Deductions</button>
+                                <div class="acc-content">
+                                    <div class="form-grid">
+                                        <div class="field"><label for="section80c">Section 80C</label><input
+                                                class="input" id="section80c" type="number" min="0"
+                                                placeholder="PPF, LIC, etc."><span class="note">Max 1.5L</span></div>
+                                        <div class="field"><label for="medical80d">Medical (80D)</label><input
+                                                class="input" id="medical80d" type="number" min="0"
+                                                placeholder="Self + Parents"><span class="note">Max 1L</span></div>
+                                        <div class="field"><label for="npsAdditional">NPS (80CCD1B)</label><input
+                                                class="input" id="npsAdditional" type="number" min="0"
+                                                placeholder="Addl. 50k"><span class="note">Max 50k</span></div>
+                                        <div class="field"><label for="employerNPS">Employer NPS (80CCD2)</label><input
+                                                class="input" id="employerNPS" type="number" min="0"
+                                                placeholder="Allowed in both"></div>
+                                        <div class="field full"><label for="ded80G">Donations (80G)</label><input
+                                                class="input" id="ded80G" type="number" min="0"
+                                                placeholder="Eligible donations"></div>
+
+                                        <!-- Detailed Donations -->
+                                        <div class="field"><label>80G: 100% Exemption</label><input
+                                                class="input validate" id="ded80G_100" type="number"
+                                                data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+                                        <div class="field"><label>80G: 50% Exemption</label><input
+                                                class="input validate" id="ded80G_50" type="number"
+                                                data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+                                        <div class="field"><label>80G: Children Education</label><input
+                                                class="input validate" id="ded80G_child" type="number"
+                                                data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+                                        <div class="field"><label>80G: Political Parties</label><input
+                                                class="input validate" id="ded80G_pol" type="number"
+                                                data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Specific Reliefs -->
+                            <div class="acc-item">
+                                <button type="button" class="acc-trigger">4. Specialized Deductions</button>
+                                <div class="acc-content">
+                                    <div class="form-grid">
+                                        <div class="field"><label>80EE: Housing (2016)</label><input
+                                                class="input validate" id="ded80EE" type="number" data-max="50000"
+                                                placeholder="Max 50k">
+                                            <span class="error-text">Max 50k</span>
+                                        </div>
+                                        <div class="field"><label>80EEA: Housing (2019)</label><input
+                                                class="input validate" id="ded80EEA" type="number" data-max="150000"
+                                                placeholder="Max 1.5L">
+                                            <span class="error-text">Max 1.5L</span>
+                                        </div>
+                                        <div class="field"><label>80GGC: Political (Electoral)</label><input
+                                                class="input validate" id="ded80GGC" type="number" data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+                                        <div class="field"><label>80GGA: Scientific Research</label><input
+                                                class="input validate" id="ded80GGA" type="number" data-max="999999999">
+                                            <span class="error-text">Invalid amount</span>
+                                        </div>
+
+                                        <div class="field"><label>80DD: Handicapped (40-80%)</label><input
+                                                class="input validate" id="ded80DD_norm" type="number" data-max="75000"
+                                                placeholder="Max 75k">
+                                            <span class="error-text">Max 75k</span>
+                                        </div>
+                                        <div class="field"><label>80DD: Handicapped (>80%)</label><input
+                                                class="input validate" id="ded80DD_sev" type="number" data-max="125000"
+                                                placeholder="Max 1.25L">
+                                            <span class="error-text">Max 1.25L</span>
+                                        </div>
+
+                                        <div class="field"><label>80DDB: Med (Specified)</label><input
+                                                class="input validate" id="ded80DDB_norm" type="number" data-max="40000"
+                                                placeholder="Max 40k">
+                                            <span class="error-text">Max 40k</span>
+                                        </div>
+                                        <div class="field"><label>80DDB: Med (Senior)</label><input
+                                                class="input validate" id="ded80DDB_sen" type="number" data-max="100000"
+                                                placeholder="Max 1L">
+                                            <span class="error-text">Max 1L</span>
+                                        </div>
+
+                                        <div class="field"><label>80U: Disability (40-80%)</label><input
+                                                class="input validate" id="ded80U_norm" type="number" data-max="75000"
+                                                placeholder="Max 75k">
+                                            <span class="error-text">Max 75k</span>
+                                        </div>
+                                        <div class="field"><label>80U: Disability (>80%)</label><input
+                                                class="input validate" id="ded80U_sev" type="number" data-max="125000"
+                                                placeholder="Max 1.25L">
+                                            <span class="error-text">Max 1.25L</span>
+                                        </div>
+
+                                        <div class="field full">
+                                            <label>10(10B): Retrenchment Comp.</label>
+                                            <input class="input validate" id="exemp10_10B" type="number"
+                                                data-max="500000" placeholder="Max 5L">
+                                            <span class="error-text">Max exemption is 5L</span>
+                                        </div>
+
+                                        <!-- Health Insurance -->
+                                        <div class="field full">
+                                            <label>80D: Health Insurance</label>
+                                            <div class="form-grid">
+                                                <input class="input" id="ded80D_self" type="number"
+                                                    placeholder="Self/Family">
+                                                <input class="input" id="ded80D_parents" type="number"
+                                                    placeholder="Parents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 4: Interest -->
+                            <div class="acc-item">
+                                <button type="button" class="acc-trigger">4. Interest & Other Relief</button>
+                                <div class="acc-content">
+                                    <div class="form-grid">
+                                        <div class="field full"><label for="housingInterest">Home Loan
+                                                Interest</label><input class="input" id="housingInterest" type="number"
+                                                min="0" placeholder="Self-occupied interest"><span class="note">Max
+                                                2L</span></div>
+                                        <div class="field"><label for="evInterest">EV Loan (80EEB)</label><input
+                                                class="input validate" id="evInterest" type="number" min="0"
+                                                data-max="150000" placeholder="Max 1.5L">
+                                            <span class="error-text">Max limit is 1.5L</span>
+                                        </div>
+                                        <div class="field"><label for="savingsInterest">Savings Int.
+                                                (80TTA)</label><input class="input validate" id="savingsInterest"
+                                                type="number" min="0" data-max="10000" placeholder="Max 10k">
+                                            <span class="error-text">Max limit is 10k</span>
+                                        </div>
+                                        <div class="field"><label for="seniorInterest">Senior Int. (80TTB)</label><input
+                                                class="input validate" id="seniorInterest" type="number" min="0"
+                                                data-max="50000" placeholder="Max 50k">
+                                            <span class="error-text">Max limit is 50k</span>
+                                        </div>
+                                        <div class="field"><label for="educationLoan">Edu Loan (80E)</label><input
+                                                class="input" id="educationLoan" type="number" min="0"
+                                                placeholder="Interest only"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn primary" type="submit">Calculate Now</button>
+                            <button class="btn primary" style="background: var(--gold)" type="button" id="downloadPdf"
+                                disabled>Download Report</button>
+                            <button class="btn ghost" type="button" id="resetButton">Reset</button>
+                        </div>
+                        <div class="assume">
+                            <strong>Current Law Assumptions</strong>
+                            <small>Slabs updated for Budget 2026. New Regime Rebate up to ₹12L. Standard Deduction: ₹50k
+                                (Old) / ₹75k (New).</small>
+                        </div>
+                    </form>
+                    <aside class="panel rise d3" aria-live="polite">
+                        <span class="chip" id="resultChip">Awaiting Inputs</span>
+                        <div class="winner">
+                            <h3 id="winnerTitle">Comparison Result</h3>
+                            <p id="winnerCopy" style="font-size: 0.9rem; margin-top: 4px;">Enter your income and
+                                investments to see which regime saves you more money.</p>
+                            <div class="amount" id="winnerAmount">Rs. 0</div>
+                        </div>
+                        <!-- Visual Chart Container -->
+                        <div
+                            style="margin-top: 24px; background: rgba(255,255,255,0.5); border-radius: 18px; padding: 16px; border: 1px solid var(--line);">
+                            <canvas id="taxChart" style="max-height: 200px;"></canvas>
+                        </div>
+                        <div class="rows">
+                            <div class="row"><span>Total income</span><strong id="grossIncomeResult">Rs. 0</strong>
+                            </div>
+                            <div class="row"><span>Old regime taxable income</span><strong id="taxableOldResult">Rs.
+                                    0</strong></div>
+                            <div class="row"><span>New regime taxable income</span><strong id="taxableNewResult">Rs.
+                                    0</strong></div>
+                            <div class="row"><span>Old regime estimated tax</span><strong id="oldTaxResult">Rs.
+                                    0</strong></div>
+                            <div class="row"><span>New regime estimated tax</span><strong id="newTaxResult">Rs.
+                                    0</strong></div>
+                            <div class="row"><span>Estimated savings</span><strong id="savingsResult">Rs. 0</strong>
+                            </div>
+                            <div class="row"><span>Effective tax rate</span><strong id="effectiveRateResult">0%</strong>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap foot rise">
+            <p>&copy; 2024 TaxRoot. For planning only. All calculations processed locally in-browser.</p>
+            <a class="btn ghost" href="#top">Back to top</a>
+        </div>
+    </footer>
+
+    <script>
+        let lastResult = null;
+        let taxChartInstance = null;
+        const currency = (value) => `Rs. ${Math.round(value).toLocaleString("en-IN")}`;
+        const cap = (value, max) => Math.min(value, max);
+        const readNumber = (id) => {
+            const el = document.getElementById(id);
+            if (!el) return 0;
+            if (el.max && parseFloat(el.value) > parseFloat(el.max)) el.value = el.max;
+            const value = parseFloat(el.value);
+            return Number.isFinite(value) && value > 0 ? value : 0;
+        };
+
+        // Toggle Accordion Logic
+        document.querySelectorAll('.acc-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                trigger.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Input Validation with Error Messages
+        document.querySelectorAll('.validate').forEach(input => {
+            input.addEventListener('input', () => {
+                const maxVal = parseFloat(input.dataset.max);
+                const currentVal = parseFloat(input.value);
+                const errorSpan = input.parentElement.querySelector('.error-text');
+
+                if (currentVal > maxVal) {
+                    input.style.borderColor = '#d63a3a';
+                    if (errorSpan) errorSpan.style.display = 'block';
+                } else {
+                    input.style.borderColor = '';
+                    if (errorSpan) errorSpan.style.display = 'none';
+                }
+            });
+        });
+
+        function getOldSlabTax(taxableIncome) {
+            if (taxableIncome <= 250000) return 0;
+            let tax = 0;
+            if (taxableIncome > 1000000) tax = 112500 + (taxableIncome - 1000000) * 0.3;
+            else if (taxableIncome > 500000) tax = 12500 + (taxableIncome - 500000) * 0.2;
+            else tax = (taxableIncome - 250000) * 0.05;
+            if (taxableIncome <= 500000) tax = 0; // Section 87A Rebate
+            return tax;
+        }
+
+        function getNewSlabTax(taxableIncome) {
+            if (taxableIncome <= 400000) return 0;
+            let tax = 0;
+            if (taxableIncome > 2400000) tax = 300000 + (taxableIncome - 2400000) * 0.3;
+            else if (taxableIncome > 2000000) tax = 200000 + (taxableIncome - 2000000) * 0.25;
+            else if (taxableIncome > 1600000) tax = 120000 + (taxableIncome - 1600000) * 0.2;
+            else if (taxableIncome > 1200000) tax = 60000 + (taxableIncome - 1200000) * 0.15;
+            else if (taxableIncome > 800000) tax = 20000 + (taxableIncome - 800000) * 0.1;
+            else tax = (taxableIncome - 400000) * 0.05;
+
+            if (taxableIncome <= 1200000) return 0; // Section 87A Rebate (Increased to 12L)
+            if (taxableIncome <= 1270588) tax = Math.min(tax, taxableIncome - 1200000); // Marginal Relief
+            return tax;
+        }
+
+        function applySurcharge(tax, income, isNewRegime) {
+            let rate = 0;
+            if (income > 50000000) rate = isNewRegime ? 0.25 : 0.37;
+            else if (income > 20000000) rate = 0.25;
+            else if (income > 10000000) rate = 0.15;
+            else if (income > 5000000) rate = 0.10;
+
+            if (rate === 0) return tax;
+            let surcharge = tax * rate;
+
+            // Marginal Relief for Surcharge
+            const thresholds = [5000000, 10000000, 20000000, 50000000];
+            let t = 0;
+            for (let x of thresholds) if (income > x) t = x;
+
+            if (t > 0) {
+                const taxAtT = isNewRegime ? getNewSlabTax(t) : getOldSlabTax(t);
+                let surRateAtT = 0;
+                if (t > 50000000) surRateAtT = isNewRegime ? 0.25 : 0.37;
+                else if (t > 20000000) surRateAtT = 0.25;
+                else if (t > 10000000) surRateAtT = 0.15;
+                else if (t > 5000000) surRateAtT = 0.10;
+
+                const surAtT = taxAtT * surRateAtT;
+                const limit = (income - t) + taxAtT + surAtT;
+                if ((tax + surcharge) > limit) return limit;
+            }
+            return tax + surcharge;
+        }
+
+        function calculateOldRegimeTax(taxableIncome) {
+            let tax = getOldSlabTax(taxableIncome);
+            tax = applySurcharge(tax, taxableIncome, false);
+            return tax * 1.04; // Cess
+        }
+
+        function calculateNewRegimeTax(taxableIncome) {
+            let tax = getNewSlabTax(taxableIncome);
+            tax = applySurcharge(tax, taxableIncome, true);
+            return tax * 1.04; // Cess
+        }
+
+        function calculateEstimate() {
+            const grossSalary = readNumber("grossSalary");
+            const bonusIncome = readNumber("bonusIncome");
+            const rentalIncome = readNumber("rentalIncome");
+            const otherIncome = readNumber("otherIncome");
+
+            const profTax = readNumber("professionalTax");
+            const hra = readNumber("hraExemption");
+            const lta = readNumber("ltaExemption");
+
+            const section80c = cap(readNumber("section80c"), 150000);
+            const medical80d = cap(readNumber("medical80d"), 100000);
+            const npsAdditional = cap(readNumber("npsAdditional"), 50000);
+            const employerNPS = readNumber("employerNPS");
+            const ded80G = readNumber("ded80G");
+
+            const housingInterest = cap(readNumber("housingInterest"), 200000);
+            const eduLoan = readNumber("educationLoan");
+            const evInterest = cap(readNumber("evInterest"), 150000);
+            const savingsInterest = cap(readNumber("savingsInterest"), 10000);
+            const seniorInterest = cap(readNumber("seniorInterest"), 100000);
+
+            const displayGross = grossSalary + bonusIncome + rentalIncome + otherIncome;
+            const rentalDed = rentalIncome * 0.3; // Standard deduction u/s 24(a)
+            const netRental = rentalIncome - rentalDed;
+
+            const standardOld = (grossSalary + bonusIncome) > 0 ? 50000 : 0;
+            const standardNew = (grossSalary + bonusIncome) > 0 ? 75000 : 0;
+
+            const oldDeductions = profTax + hra + lta + section80c + medical80d + npsAdditional + employerNPS + housingInterest + eduLoan + evInterest + savingsInterest + seniorInterest + ded80G + rentalDed;
+            const taxableOld = Math.max(0, displayGross - standardOld - oldDeductions);
+
+            // New Regime: Housing interest allowed only for let-out property up to rental income
+            const housingInterestNew = Math.min(housingInterest, netRental);
+            const taxableNew = Math.max(0, (grossSalary + bonusIncome + netRental + otherIncome) - standardNew - employerNPS - housingInterestNew);
+
+            return {
+                grossIncome: displayGross, taxableOld, taxableNew, oldTax: calculateOldRegimeTax(taxableOld), newTax: calculateNewRegimeTax(taxableNew),
+                inputs: { grossSalary, bonusIncome, rentalIncome, otherIncome, profTax, hra, lta, section80c, medical80d, npsAdditional, employerNPS, housingInterest, evInterest, savingsInterest, seniorInterest, eduLoan, ded80G }
+            };
+        }
+
+        function paintResults(result) {
+            lastResult = result;
+            const better = result.oldTax <= result.newTax ? "Old regime" : "New regime";
+            const bestTax = Math.min(result.oldTax, result.newTax);
+            const savings = Math.abs(result.oldTax - result.newTax);
+            const rate = result.grossIncome > 0 ? (bestTax / result.grossIncome) * 100 : 0;
+            document.getElementById("resultChip").textContent = `${better.toUpperCase()} IS BETTER`;
+            document.getElementById("winnerTitle").textContent = `Recommended: ${better}`;
+            document.getElementById("winnerCopy").textContent = savings === 0 ? "Both regimes are identical for your inputs." : `Choosing the ${better} saves you approximately ${currency(savings)} per year.`;
+            document.getElementById("winnerAmount").textContent = currency(bestTax);
+            document.getElementById("grossIncomeResult").textContent = currency(result.grossIncome);
+            document.getElementById("taxableOldResult").textContent = currency(result.taxableOld);
+            document.getElementById("taxableNewResult").textContent = currency(result.taxableNew);
+            document.getElementById("oldTaxResult").textContent = currency(result.oldTax);
+            document.getElementById("newTaxResult").textContent = currency(result.newTax);
+            document.getElementById("savingsResult").textContent = currency(savings);
+            document.getElementById("effectiveRateResult").textContent = `${rate.toFixed(2)}%`;
+            document.getElementById("downloadPdf").disabled = false;
+
+            updateChart(result.oldTax, result.newTax);
+        }
+
+        function updateChart(oldTax, newTax) {
+            const ctx = document.getElementById('taxChart').getContext('2d');
+            if (taxChartInstance) {
+                taxChartInstance.destroy();
+            }
+            taxChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Old Regime', 'New Regime'],
+                    datasets: [{
+                        label: 'Tax Liability (Rs.)',
+                        data: [oldTax, newTax],
+                        backgroundColor: ['#d68a3a', '#15634c'],
+                        borderRadius: 10,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { display: false }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function resetResults() {
+            lastResult = null;
+            document.getElementById("taxForm").reset();
+            document.getElementById("resultChip").textContent = "Awaiting Inputs";
+            document.getElementById("winnerTitle").textContent = "Enter values to compare regimes";
+            document.getElementById("winnerCopy").textContent = "The calculator will recommend the lower estimated tax and show the taxable income for both regimes.";
+            document.getElementById("winnerAmount").textContent = "Rs. 0";
+            document.getElementById("grossIncomeResult").textContent = "Rs. 0";
+            document.getElementById("taxableOldResult").textContent = "Rs. 0";
+            document.getElementById("taxableNewResult").textContent = "Rs. 0";
+            document.getElementById("oldTaxResult").textContent = "Rs. 0";
+            document.getElementById("newTaxResult").textContent = "Rs. 0";
+            document.getElementById("savingsResult").textContent = "Rs. 0";
+            document.getElementById("effectiveRateResult").textContent = "0%";
+            document.getElementById("downloadPdf").disabled = true;
+            if (taxChartInstance) {
+                taxChartInstance.destroy();
+                taxChartInstance = null;
+            }
+        }
+
+        document.getElementById("taxForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            paintResults(calculateEstimate());
+        });
+
+        document.getElementById("resetButton").addEventListener("click", resetResults);
+
+        document.getElementById("downloadPdf").addEventListener("click", () => {
+            if (!lastResult) return;
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFont("helvetica", "bold").setFontSize(22);
+            doc.setTextColor(21, 99, 76);
+            doc.text("TaxRoot Calculation Report", 14, 22);
+
+            doc.setFontSize(14).text("FY 2026-27 / AY 2027-28", 14, 30);
+            doc.setFontSize(10).setTextColor(100).setFont("helvetica", "normal");
+            doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, 36);
+
+            const inputData = [
+                ["Gross Annual Salary", currency(lastResult.inputs.grossSalary)],
+                ["Bonus / Other Allowances", currency(lastResult.inputs.bonusIncome)],
+                ["Gross Total Income", currency(lastResult.grossIncome)],
+                ["Employer NPS (80CCD2)", currency(lastResult.inputs.employerNPS)],
+                ["Best Regime Recommendation", lastResult.oldTax <= lastResult.newTax ? "Old Regime" : "New Regime"]
+            ];
+
+            doc.autoTable({ startY: 42, head: [['Income Summary', 'Value']], body: inputData, theme: 'striped', headStyles: { fillColor: [21, 99, 76] } });
+
+            const deductionsData = [
+                ["Standard Deduction", "Rs. 50,000", "Rs. 75,000 (New)"],
+                ["Section 80C (Capped 1.5L)", currency(lastResult.inputs.section80c), "N/A"],
+                ["Medical (80D)", currency(lastResult.inputs.medical80d), "N/A"],
+                ["NPS Addl. (80CCD1B)", currency(lastResult.inputs.npsAdditional), "N/A"],
+                ["Home Loan Interest (Sec 24b)", currency(lastResult.inputs.housingInterest), "N/A"],
+                ["HRA Exemption", currency(lastResult.inputs.hra), "N/A"],
+                ["Professional Tax", currency(lastResult.inputs.profTax), "N/A"],
+                ["Donations (80G)", currency(lastResult.inputs.ded80G), "N/A"],
+                ["Employer NPS (80CCD2)", currency(lastResult.inputs.employerNPS), currency(lastResult.inputs.employerNPS)]
+            ];
+
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 7,
+                head: [['Deduction Item', 'Old Regime', 'New Regime']],
+                body: deductionsData,
+                theme: 'grid'
+            });
+
+            const comparisonData = [
+                ["Taxable Income", currency(lastResult.taxableOld), currency(lastResult.taxableNew)],
+                ["Tax Payable (inc. 4% Cess)", currency(lastResult.oldTax), currency(lastResult.newTax)]
+            ];
+
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 10,
+                head: [['Final Computation', 'Old Regime', 'New Regime']],
+                body: comparisonData,
+                theme: 'grid',
+                headStyles: { fillColor: [214, 138, 58] }
+            });
+
+            doc.setFontSize(8);
+            doc.setTextColor(150);
+            doc.text("Disclaimer: This is an estimation based on provided inputs and standard tax laws for FY 24-25. Please consult an auditor for official filing.", 14, doc.lastAutoTable.finalY + 15);
+
+            doc.save("TaxRoot_Tax_Report.pdf");
+        });
+    </script>
+</body>
+
+</html>
